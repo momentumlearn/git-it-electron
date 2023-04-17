@@ -1,39 +1,10 @@
-/* FONTS
-   -------------------------------------------------------------------------- */
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(fonts/SourceSansPro-Regular.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Source Sans Pro Semibold'), local('SourceSansPro-Semibold'), url(fonts/SourceSansPro-Semibold.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(fonts/SourceSansPro-Bold.otf) format('opentype');
-}
-
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 900;
-  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(fonts/SourceSansPro-Black.otf) format('opentype');
-}
+@import 'mmntm-brand.css';
 
 /* GENERAL
    -------------------------------------------------------------------------- */
 
 body {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
   line-height: 1.8em;
   color: rgba(51, 57, 53, 0.83);
   background-color: #f5f5f5;

@@ -220,7 +220,7 @@ code {
   background: rgba(157, 166, 179, 0.16);
   padding: 6px 6px 3px 6px;
   border-radius: 2px;
-  font-family: 'Liberation Mono', Monaco, Courier New, monospace;
+  font-family: var(--mono-font), Monaco, Courier New, monospace;
   white-space: nowrap;
 }
 

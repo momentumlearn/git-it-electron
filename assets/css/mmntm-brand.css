@@ -1,0 +1,15 @@
+:root {
+  --brand-royal-blue: #1a0a6e;
+  --brand-sky-blue: #5cc8d8;
+  --brand-sky-blue-lighter: #bde8ef;
+  --brand-branch-green: #1da57e;
+  --brand-violet: #6e56b1;
+  --brand-violet-darker: #443370;
+  --brand-ruby-red: #e95d68;
+  --brand-black: #090326;
+  --semi-transparent-green: rgba(29, 165, 126, 0.2);
+  --semi-transparent-blue: rgba(92, 200, 216, 0.2);
+  --more-transparent-blue: rgba(92, 200, 216, 0.15);
+  --text-font: 'Open Sans', 'Lato', sans-serif;
+  --mono-font: 'Roboto Mono', 'IBM Plex Mono', monospace;
+}
