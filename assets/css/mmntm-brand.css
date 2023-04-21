@@ -10,6 +10,6 @@
   --semi-transparent-green: rgba(29, 165, 126, 0.2);
   --semi-transparent-blue: rgba(92, 200, 216, 0.2);
   --more-transparent-blue: rgba(92, 200, 216, 0.15);
-  --text-font: 'Open Sans', 'Lato', sans-serif;
-  --mono-font: 'Roboto Mono', 'IBM Plex Mono', monospace;
+  --text-font: 'Open Sans', 'Lato', 'Arial', sans-serif;
+  --mono-font: 'Roboto Mono', 'IBM Plex Mono', 'Monaco', monospace;
 }

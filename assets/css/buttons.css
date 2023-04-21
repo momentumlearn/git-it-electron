@@ -20,11 +20,12 @@ button:focus {
 }
 
 button:hover {
-  background-color: #badfff;
+  background-color: var(--brand-sky-blue-lighter);
 }
 
 button:disabled {
-  background-color: rgba(24,105,177,1);
+  background-color: #e0e0e0;
+  color: rgba(26, 10, 110, 0.5);
 }
 
 button .octicon {
@@ -39,22 +40,22 @@ button .octicon {
 
 .btn-primary {
   margin: 9px 0;
-  background: #0087ff;
+  background: var(--brand-royal-blue);
   color: #fff;
-  border-radius: 2px;
+  border-radius: 4px;
   text-transform: inherit;
 }
 
 .btn-secondary {
   background: #8cf;
   color: #fff;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .btn-white {
   background: #fff;
-  color: #0087ff;
-  border-radius: 2px;
+  color: var(--brand-royal-blue);
+  border-radius: 4px;
 }
 
 .btn-outline {
@@ -62,7 +63,7 @@ button .octicon {
   background: none;
   padding: 4px 13px;
   border-radius: 3px;
-  color: #0087ff;
+  color: var(--brand-royal-blue);
   display: inline-block;
 }
 
@@ -89,20 +90,20 @@ button .octicon {
 }
 
 .border-group-left {
-  border: 1px solid #0087ff;
-  border-radius: 2px 0 0 2px;
+  border: 1px solid var(--brand-royal-blue);
+  border-radius: 4px 0 0 2px;
   padding: 10px 14px;
 }
 
 .border-group-middle {
-  border-top: 1px solid #0087ff;
-  border-bottom: 1px solid #0087ff;
+  border-top: 1px solid var(--brand-royal-blue);
+  border-bottom: 1px solid var(--brand-royal-blue);
   padding: 10px 14px;
   margin-left: -4px;
 }
 
 .border-group-right {
-  border: 1px solid #0087ff;
+  border: 1px solid var(--brand-royal-blue);
   border-radius: 0 2px 2px 0;
   padding: 10px 14px;
 }
@@ -110,17 +111,17 @@ button .octicon {
 .border-group-right.btn {
   border: 1px solid #88CCFF;
   color: #88CCFF;
-  border-left-color: #0087FF;
+  border-left-color: var(--brand-royal-blue);
 }
 
 .border-group-right.btn:hover {
-  border: 1px solid #0087ff;
-  color: #0087ff;
+  border: 1px solid var(--brand-royal-blue);
+  color: var(--brand-royal-blue);
   cursor: pointer;
 }
 
 .border-group-container {
-  color: #0087ff;
+  color: var(--brand-royal-blue);
   padding: 20px 0;
   user-select: none;
 }

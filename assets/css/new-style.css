@@ -4,7 +4,7 @@
    -------------------------------------------------------------------------- */
 
 body {
-  font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+  font-family: var(--text-font);
   line-height: 1.8em;
   color: rgba(51, 57, 53, 0.83);
   background-color: #f5f5f5;
@@ -22,12 +22,13 @@ li {
 }
 
 a {
-  color: #0087ff;
+  color: var(--brand-violet);
   text-decoration: none;
 }
 
 a:hover {
-  color: #4BABFF;
+  color: var(--brand-violet-darker);
+  text-decoration: underline;
 }
 
 blockquote {
@@ -196,7 +197,7 @@ ul.no-list-style {
   top: 9px;
   height: 6px;
   width: 6px;
-  border: 0.15em solid #0087ff;
+  border: 0.15em solid var(--brand-ruby-red);
   border-radius: 50px;
 }
 
@@ -206,8 +207,8 @@ ul.no-list-style {
   top: 12px;
   height: 6px;
   width: 6px;
-  border: 0.15em solid #0087ff;
-  background-color: #0087ff;
+  border: 0.15em solid var(--brand-ruby-red);
+  background-color: var(--brand-ruby-red);
   border-radius: 50px;
 }
 
@@ -221,7 +222,7 @@ ul.no-list-style {
 }
 
 .challenge-item.current {
-  background-color: #8cf;
+  background-color: var(--brand-violet);
   color: #fff;
   margin-right: -3px;
   border-color: white;
@@ -302,19 +303,19 @@ ul.no-list-style {
 }
 
 .progress-circles .border-left {
-  border-left: 1px solid #0087ff;
+  border-left: 1px solid var(--brand-sky-blue);
 }
 
 .progress-circle {
   display: inline-block;
   width: 10px;
 	height: 10px;
-  border: 0.15em solid #0087ff;
+  border: 0.15em solid var(--brand-sky-blue);
 	border-radius: 50px;
 }
 
 .progress-circle.completed {
-  background: #0087ff;
+  background: var(--brand-sky-blue);
 }
 
 .progress-circle.completed + .progress-circle:not(.completed) {
