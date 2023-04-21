@@ -1,24 +1,24 @@
-var fs = require('fs')
-var path = require('path')
+const fs = require('fs')
+const path = require('path')
 
-var electron = require('electron')
-var locale = require('./lib/locale.js')
-var app = electron.app
-var BrowserWindow = electron.BrowserWindow
-var Menu = electron.Menu
-var ipcMain = electron.ipcMain
-var dialog = electron.dialog
+const electron = require('electron')
+const locale = require('./lib/locale.js')
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
+const Menu = electron.Menu
+const ipcMain = electron.ipcMain
+const dialog = electron.dialog
 
-var darwinTemplate = require('./menus/darwin-menu.js')
-var otherTemplate = require('./menus/other-menu.js')
+const darwinTemplate = require('./menus/darwin-menu.js')
+const otherTemplate = require('./menus/other-menu.js')
 
-var emptyData = require('./empty-data.json')
-var emptySavedDir = require('./empty-saved-dir.json')
+const emptyData = require('./empty-data.json')
+const emptySavedDir = require('./empty-saved-dir.json')
 
-var mainWindow = null
-var menu = null
+let mainWindow = null
+let menu = null
 
-var iconPath = path.join(__dirname, '/assets/git-it.png')
+const iconPath = path.join(__dirname, '/assets/git-it.png')
 
 app.on('window-all-closed', function appQuit () {
   if (process.platform !== 'darwin') {
@@ -28,29 +28,34 @@ app.on('window-all-closed', function appQuit () {
 
 app.on('ready', function appReady () {
   mainWindow = new BrowserWindow({
-    'minWidth': 800,
-    'minHeight': 600,
+    minWidth: 800,
+    minHeight: 600,
     width: 980,
     height: 760,
     title: 'Git-it',
-    icon: iconPath
+    icon: iconPath,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: false
+    }
   })
 
-  var appPath = app.getPath('userData')
-  var userDataPath = path.join(appPath, 'user-data.json')
-  var userSavedDir = path.join(appPath, 'saved-dir.json')
-  var language = locale.getLocale(app.getLocale())
+  const appPath = app.getPath('userData')
+  const userDataPath = path.join(appPath, 'user-data.json')
+  const userSavedDir = path.join(appPath, 'saved-dir.json')
+  const language = locale.getLocale(app.getLocale())
   // tools for development to prefill challenge completion
   // usage: electron . --none
   //        electron . --some
   //        electron . --all
-  if (process.argv[ 2 ] === '--none') {
+  if (process.argv[2] === '--none') {
     setAllChallengesUncomplete(userDataPath)
   }
-  if (process.argv[ 2 ] === '--some') {
+  if (process.argv[2] === '--some') {
     setSomeChallengesComplete(userDataPath)
   }
-  if (process.argv[ 2 ] === '--all') {
+  if (process.argv[2] === '--all') {
     setAllChallengesComplete(userDataPath)
   }
 
@@ -80,16 +85,16 @@ app.on('ready', function appReady () {
   })
 
   ipcMain.on('open-file-dialog', function (event) {
-    var files = dialog.showOpenDialog(mainWindow, { properties: [ 'openFile', 'openDirectory' ] })
+    const files = dialog.showOpenDialog(mainWindow, { properties: ['openFile', 'openDirectory'] })
     if (files) {
       event.sender.send('selected-directory', files)
     }
   })
 
   ipcMain.on('confirm-clear', function (event) {
-    var options = {
+    const options = {
       type: 'info',
-      buttons: [ 'Yes', 'No' ],
+      buttons: ['Yes', 'No'],
       title: 'Confirm Clearing Statuses',
       message: 'Are you sure you want to clear the status for every challenge?'
     }
@@ -112,27 +117,27 @@ app.on('ready', function appReady () {
 })
 
 function setAllChallengesComplete (path) {
-  var challenges = JSON.parse(fs.readFileSync(path))
-  for (var key in challenges) {
-    challenges[ key ].completed = true
+  const challenges = JSON.parse(fs.readFileSync(path))
+  for (const key in challenges) {
+    challenges[key].completed = true
   }
   fs.writeFileSync(path, JSON.stringify(challenges), '', null)
 }
 
 function setAllChallengesUncomplete (path) {
-  var challenges = JSON.parse(fs.readFileSync(path))
-  for (var key in challenges) {
-    challenges[ key ].completed = false
+  const challenges = JSON.parse(fs.readFileSync(path))
+  for (const key in challenges) {
+    challenges[key].completed = false
   }
   fs.writeFileSync(path, JSON.stringify(challenges), '', null)
 }
 
 function setSomeChallengesComplete (path) {
-  var counter = 0
-  var challenges = JSON.parse(fs.readFileSync(path))
-  for (var key in challenges) {
+  let counter = 0
+  const challenges = JSON.parse(fs.readFileSync(path))
+  for (const key in challenges) {
     counter++
-    challenges[ key ].completed = counter < 6
+    challenges[key].completed = counter < 6
   }
   fs.writeFileSync(path, JSON.stringify(challenges), '', null)
 }

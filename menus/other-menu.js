@@ -1,6 +1,6 @@
-var locale = require('../lib/locale.js')
+const locale = require('../lib/locale.js')
 module.exports = function menu (app, mainWindow) {
-  var otherMenu = [
+  const otherMenu = [
     {
       label: '&File',
       submenu: [
@@ -65,7 +65,7 @@ module.exports = function menu (app, mainWindow) {
           label: 'Home',
           click: function (item, focusedWindow) {
             if (focusedWindow) {
-              var path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'index.html')
+              const path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'index.html')
               focusedWindow.loadURL(path)
               // console.log(focusedWindow)
             }
@@ -75,7 +75,7 @@ module.exports = function menu (app, mainWindow) {
           label: 'Dictionary',
           click: function (item, focusedWindow) {
             if (focusedWindow) {
-              var path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'dictionary.html')
+              const path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'dictionary.html')
               focusedWindow.loadURL(path)
             }
           }
@@ -84,7 +84,7 @@ module.exports = function menu (app, mainWindow) {
           label: 'Resources',
           click: function (item, focusedWindow) {
             if (focusedWindow) {
-              var path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'resources.html')
+              const path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'resources.html')
               focusedWindow.loadURL(path)
             }
           }
@@ -110,7 +110,7 @@ module.exports = function menu (app, mainWindow) {
           label: 'About App',
           click: function (item, focusedWindow) {
             if (focusedWindow) {
-              var path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'about.html')
+              const path = require('path').join(locale.getLocaleBuiltPath(locale.getCurrentLocale(focusedWindow)), 'pages', 'about.html')
               focusedWindow.loadURL(path)
             }
           }
