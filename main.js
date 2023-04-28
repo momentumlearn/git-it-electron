@@ -1,3 +1,4 @@
+require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
 
@@ -36,8 +37,7 @@ app.on('ready', function appReady () {
     icon: iconPath,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false,
-      enableRemoteModule: false
+      preload: path.join(__dirname, 'preload.js'),
     }
   })
 
@@ -75,7 +75,12 @@ app.on('ready', function appReady () {
     }
   })
   mainWindow.loadURL('file://' + locale.getLocaleBuiltPath(language) + '/pages/index.html')
-
+  
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.openDevTools()
+  }  
+  
+  
   ipcMain.on('getUserDataPath', function (event) {
     event.returnValue = userDataPath
   })
@@ -101,6 +106,16 @@ app.on('ready', function appReady () {
     dialog.showMessageBox(options, function cb (response) {
       event.sender.send('confirm-clear-response', response)
     })
+  })
+  
+  ipcMain.handle('dialog:openDirectory', async () => {
+    console.log("openDirectory handler called")
+    const { cancelled, dirPaths } = await dialog.showOpenDialog(mainWindow, { properties: ['openFile', 'openDirectory'] })
+    if (cancelled) {
+      return
+    } else {
+      return dirPaths[0]
+    }
   })
 
   if (process.platform === 'darwin') {
