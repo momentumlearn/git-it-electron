@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer } = require('electron')
+const { contextBridge, ipcRenderer, shell } = require('electron')
 // const fs = require('fs')
 const fs = require('node:fs')
 const path = require('node:path');
@@ -44,4 +44,8 @@ contextBridge.exposeInMainWorld('userData', {
     data.contents.savedDir = path
     this.writeData(data)
   }
+})
+
+contextBridge.exposeInMainWorld('handleExternalLinks', {
+  openExternalLink: (url) => shell.openExternal(url),
 })
