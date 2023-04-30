@@ -19,12 +19,6 @@ contextBridge.exposeInMainWorld('challengesCompleted', {
 contextBridge.exposeInMainWorld('userData', { 
   getData: () => ipcRenderer.invoke('getData', null),
   getSavedDir: () => ipcRenderer.invoke('getSavedDir', null),
-  writeData: (data) => ipcRenderer.send('writeUserData', data),
-  updateData: (challenge) => {
-    const data = getData()
-    data.contents[challenge].completed = true
-    this.writeData(data)
-  },
   updateCurrentDirectory: (path) => {
     const data = getSavedDir()
     data.contents.savedDir = path
@@ -34,6 +28,8 @@ contextBridge.exposeInMainWorld('userData', {
 
 contextBridge.exposeInMainWorld('challenges', {
   verifyChallenge: (currentChallenge) => ipcRenderer.invoke('verifyChallenge', currentChallenge),
+  markChallengeComplete: (challenge) => ipcRenderer.send('markChallengeComplete', challenge),
+  resetChallenge: (challenge) => ipcRenderer.send('resetChallenge', challenge),
 })
 
 contextBridge.exposeInMainWorld('handleExternalLinks', {
@@ -41,5 +37,8 @@ contextBridge.exposeInMainWorld('handleExternalLinks', {
 })
 
 contextBridge.exposeInMainWorld('challengeHelper', {
-  onChallengeCompleted: (callback) => ipcRenderer.on('challegeCompleted', callback),
+  onDisplayResults: (callback) => ipcRenderer.on('displayResults', callback),
+  onError: (callback) => ipcRenderer.on('error', callback),
+  onChallengeComplete: (callback) => ipcRenderer.on('challengeComplete', callback),
+  onChallengeIncomplete: (callback) => ipcRenderer.on('challengeIncomplete', callback),
 })

@@ -85,8 +85,16 @@ app.on('ready', function appReady () {
   
   if (process.env.NODE_ENV === 'development') {
     mainWindow.webContents.openDevTools()
-  }  
-
+  }
+  
+  ipcMain.on('markChallengeComplete', (event, challenge) => {
+    userData.markChallengeComplete(challenge)
+  })
+  
+  ipcMain.on('resetChallenge', (event, challenge) => {
+    userData.resetChallenge(challenge)
+  })
+  
   ipcMain.on('getNextChallengePath', (data, challenge) => {
     return path.join('..', 'challenges', data[challenge].next_challenge + '.html')
   } )

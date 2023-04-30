@@ -269,3 +269,7 @@ code.shell:before {
   color: #4f6375;
   background: var(--more-transparent-blue);
 }
+
+button#clear-completed-status {
+  display: none;
+}
