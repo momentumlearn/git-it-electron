@@ -1,7 +1,7 @@
 const { contextBridge, ipcRenderer, shell } = require('electron')
-// const fs = require('fs')
-const fs = require('node:fs')
-const path = require('node:path');
+
+// const fs = require('node:fs')
+
 // const ipc = require('electron').ipcRenderer
 
 
@@ -12,28 +12,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
 contextBridge.exposeInMainWorld('challengesCompleted', {
   confirmClear: () => ipcRenderer.invoke('dialog:confirmClear'),
   confirmClearResponse: (callback) => ipcRenderer.on('dialog:confirmClearResponse', callback),
-  writeUserData: (data) => fs.writeFileSync(data.path, JSON.stringify(data.contents, null, 2)),
-  nextChallengePath: (data, challenge) => path.join(__dirname, '..', 'challenges', data[challenge].next_challenge + '.html'),
+  writeUserData: (data) => ipcRenderer.send('writeUserData', data),
+  nextChallengePath: (data, challenge) => ipcRenderer.send('getNextChallengePath', data, challenge),
 })
 
 contextBridge.exposeInMainWorld('userData', { 
-  getData: () => {
-    const data = {}
-    data.path = ipcRenderer.sendSync('getUserDataPath', null)
-    data.contents = JSON.parse(fs.readFileSync(data.path))
-    return data
-  },
-  getSavedDir: () => {
-    const savedDir = {}
-    savedDir.path = ipcRenderer.sendSync('getUserSavedDir', null)
-    savedDir.contents = JSON.parse(fs.readFileSync(savedDir.path))
-    return savedDir
-  },
-  writeData: (data) => {
-    fs.writeFile(data.path, JSON.stringify(data.contents, null, ' '), function updatedUserData (err) {
-      if (err) return console.log(err)
-    })
-  },
+  getData: () => ipcRenderer.invoke('getData', null),
+  getSavedDir: () => ipcRenderer.invoke('getSavedDir', null),
+  writeData: (data) => ipcRenderer.send('writeUserData', data),
   updateData: (challenge) => {
     const data = getData()
     data.contents[challenge].completed = true
@@ -46,6 +32,14 @@ contextBridge.exposeInMainWorld('userData', {
   }
 })
 
+contextBridge.exposeInMainWorld('challenges', {
+  verifyChallenge: (currentChallenge) => ipcRenderer.invoke('verifyChallenge', currentChallenge),
+})
+
 contextBridge.exposeInMainWorld('handleExternalLinks', {
   openExternalLink: (url) => shell.openExternal(url),
+})
+
+contextBridge.exposeInMainWorld('challengeHelper', {
+  onChallengeCompleted: (callback) => ipcRenderer.on('challegeCompleted', callback),
 })

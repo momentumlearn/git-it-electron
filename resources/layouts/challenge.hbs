@@ -13,20 +13,18 @@
 
     <div class="wrapper" id="challenge-body">
       {{{ sidebar }}}
-      <div class="content">
+      <div class="content" id="current-challenge-container" data-current-challenge="{{{ shortname }}}">
         {{{ body }}}
         {{{ footer }}}
       </div>
     </div>
 
-    <script>
-      var challengeStatus = require('../../../lib/challenge-completed.js')
-      // TODO Get this from the DOM and don't do template in JS
-      var currentChallenge = '{{{ shortname }}}'
-      challengeStatus.completed(currentChallenge)
-    </script>
 
-    <script>require('../../../lib/handle-external-links.js')</script>
-    <script>require('../../../lib/challenge.js')</script>
+    {{!-- <script>require('../../../lib/handle-external-links.js')</script> --}}
+    <script src='../../../lib/handle-external-links.js'></script>
+    {{!-- <script>require('../../../lib/challenge.js')</script> --}}
+    <script src ='../../../lib/challenge.js'></script>
+    <script src="../../../lib/renderers/challenge-helpers.js"></script>
+    {{!-- <script src="../../../lib/challenge-completed.js"></script> --}}
   </body>
 </html>

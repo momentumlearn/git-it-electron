@@ -1,6 +1,7 @@
 require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
+const userData = require(path.join(__dirname, './lib/user-data.js'))
 
 const electron = require('electron')
 const locale = require('./lib/locale.js')
@@ -31,17 +32,21 @@ app.on('ready', function appReady () {
   mainWindow = new BrowserWindow({
     minWidth: 800,
     minHeight: 600,
-    width: 980,
-    height: 760,
+    // width: 980,
+    width: 1280,
+    // height: 760,
+    height: 900,
     title: 'Git-it',
     icon: iconPath,
     webPreferences: {
-      nodeIntegration: true,
+      // nodeIntegration: true,
+      // sandbox: false,
       preload: path.join(__dirname, 'preload.js'),
     }
   })
 
   const appPath = app.getPath('userData')
+
   const userDataPath = path.join(appPath, 'user-data.json')
   const userSavedDir = path.join(appPath, 'saved-dir.json')
   const language = locale.getLocale(app.getLocale())
@@ -74,19 +79,37 @@ app.on('ready', function appReady () {
       })
     }
   })
+  
+  console.log("LOCALE: ", locale.getLocaleBuiltPath(language))
   mainWindow.loadURL('file://' + locale.getLocaleBuiltPath(language) + '/pages/index.html')
   
   if (process.env.NODE_ENV === 'development') {
     mainWindow.webContents.openDevTools()
   }  
+
+  ipcMain.on('getNextChallengePath', (data, challenge) => {
+    return path.join('..', 'challenges', data[challenge].next_challenge + '.html')
+  } )
   
+  ipcMain.on('writeUserData', (data) => {
+    fs.writeFileSync(data.path, JSON.stringify(data.contents, null, 2))
+  })
   
-  ipcMain.on('getUserDataPath', function (event) {
-    event.returnValue = userDataPath
+  ipcMain.on('readUserDataFromFile', (path) => {
+    return JSON.parse(fs.readFileSync(path))
+  })
+  
+  ipcMain.handle('verifyChallenge', async (event, currentChallenge) => {
+    verify = require('./lib/verify/' + currentChallenge + '.js')
+    event.returnValue  = await verify()
+  })
+  
+  ipcMain.handle('getData', (event) => {
+    event.returnValue = userData.getDataFromFile()
   })
 
-  ipcMain.on('getUserSavedDir', function (event) {
-    event.returnValue = userSavedDir
+  ipcMain.handle('getSavedDir', function (event) {
+    event.returnValue = userData.getSavedDir()
   })
 
   ipcMain.on('open-file-dialog', function (event) {
