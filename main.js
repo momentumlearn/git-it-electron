@@ -95,25 +95,24 @@ app.on('ready', function appReady () {
     userData.resetChallenge(challenge)
   })
   
-  ipcMain.on('getNextChallengePath', (data, challenge) => {
-    return path.join('..', 'challenges', data[challenge].next_challenge + '.html')
-  } )
-  
-  ipcMain.on('writeUserData', (data) => {
+  ipcMain.on('writeUserData', (event, data) => {
     fs.writeFileSync(data.path, JSON.stringify(data.contents, null, 2))
   })
   
-  ipcMain.on('readUserDataFromFile', (path) => {
+  ipcMain.on('readUserDataFromFile', (event, path) => {
     return JSON.parse(fs.readFileSync(path))
   })
   
   ipcMain.handle('verifyChallenge', async (event, currentChallenge) => {
     verify = require('./lib/verify/' + currentChallenge + '.js')
-    event.returnValue  = await verify()
+    event.returnValue = await verify()
   })
   
   ipcMain.handle('getData', (event) => {
-    event.returnValue = userData.getDataFromFile()
+    console.log("getData handler called")
+    const data = userData.getDataFromFile()
+    console.log("userData: ", data)
+    return data
   })
 
   ipcMain.handle('getSavedDir', function (event) {
