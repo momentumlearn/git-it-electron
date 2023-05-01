@@ -4,26 +4,26 @@
 
 <div class="chal-background light-blue solid-box">
     <h2> Repositories</h2>
-    <p>A <strong>repository</strong> is a collection of related items. In our case, when writing software, it is a
-        collection of files related to a software project. You can imagine it as a project folder with all the relevant
-        files inside of it. In fact, that's what it will look like on your computer anyways. Sometimes they're called
-        "repos" for short.</p>
+    <p>A code <strong>repository</strong> is a collection of files related to a software project. 
+        You can imagine it as a project folder with all the relevant
+        files inside of it. In fact, that's what it will look like on your computer. A repository is often called a
+        "repo" for short. You can have multiple repos on your computer, each one for a separate code project.</p>
 
     <img src="../../../assets/imgs/repos.png" alt="A drawing of four file folders" width="600">
 
-    <p>You tell Git what your project is and Git will start tracking all of the changes to that folder. This makes it a
-        Git repository: a folder of items being tracked by Git. Git tracks when files are added, subtracted or even a
-        single letter in a single file is changed. All of this plus who did it and when is tracked by Git. In software,
-        tracking changes like this is called <strong>version control</strong>.</p>
+    <p>You can make any ordinary project folder into a Git repo, and Git will start tracking all of the changes inside that folder. 
+      Git tracks when files are added or deleted, or if even a single character in a single file is changed. 
+      All of this, plus who made the change, and when, is tracked by Git. In software, tracking changes like this is 
+      called <strong>version control</strong>.</p>
 
-    <h2>Using Terminal</h2>
-    <p><strong>Terminal</strong> (or Bash) is a way to instruct your computer to do things by typing commands rather
-        than clicking applications with your mouse. You can rename files, open files, create new folders, move between
-        directories (folders) and more all by running typed commands. You can even use a text editor for code (like <a
+    <h2>Using the Terminal</h2>
+    <p>The <strong>terminal</strong> (or <em>shell</em>) is a way to interact with your computer by typing commands rather
+        than clicking icons with your mouse. You can rename files, open files, create new folders, move between
+        directories (folders) and more, all by running typed commands. You can even use a text editor for code (like <a
                 href="http://en.wikipedia.org/wiki/Vim_(text_editor)" target="_blank"> Vim</a>) in your terminal and
         never have to leave!</p>
 
-    <p>Besides navigating your computer, you can also use programs in Terminal that have a <strong>command-line
+    <p>Besides navigating the file structures on your computer, you can also use programs in the terminal that have a <strong>command-line
         interface (CLI)</strong>, meaning they can be run with commands in terminal. Git is one of these. The first part
         of the command lets your computer know you're talking to Git. The parts following that are the commands and the
         different options you want Git to act on.</p>
@@ -37,21 +37,19 @@
     <p>You're going to create a new project folder and then initialize it as a Git repository. We'll name the folder 'hello-world'
       in this challenge, but you can choose a different name if you already have a folder named this (it's a common first project name).</p>
 
-    <p>Time to open your terminal!
-    <p>
-
+    <p>Time to open your terminal! </p>
     <p>In your terminal window, type these commands, one at a time, pressing enter/return after each.</p>
 
-    <p>First, make a new folder:<br><span class="inline-tip">Tip: mkdir stands for <em>make directory</em></span></p>
+    <p>First, make a new folder:<br><span class="inline-tip">💁 Tip: mkdir stands for <em>make directory</em></span></p>
     <code class="shell">mkdir hello-world</code>
 
-    <p>Then go into that folder:<br><span class="inline-tip">Tip: cd stands for <em>change directory</em></span></p>
+    <p>Then go into that folder:<br><span class="inline-tip">💁 Tip: cd stands for <em>change directory</em></span></p>
     <code class="shell">cd hello-world</code>
 
     <p>Finally, tell Git to initialize (start tracking) the folder you are now in:</p>
     <code class="shell">git init</code>
 
-    <p>The last command should return something starting with "Initialized empty Git repository". The others commands do
+    <p>The last command should return something like "Initialized empty Git repository". The others commands do
         not return anything.</p>
 
     <p>You did it! If you want to be double-sure that it's a Git repository, type <code>git status</code> and if it

@@ -1,10 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron')
 
-// const fs = require('node:fs')
-
-// const ipc = require('electron').ipcRenderer
-
-
 contextBridge.exposeInMainWorld('electronAPI', {
   openDirectory: () => ipcRenderer.invoke('dialog:openDirectory'),
 })
