@@ -13,21 +13,16 @@ contextBridge.exposeInMainWorld('challengesCompleted', {
   confirmClear: () => ipcRenderer.invoke('dialog:confirmClear'),
   confirmClearResponse: (callback) => ipcRenderer.on('dialog:confirmClearResponse', callback),
   writeUserData: (data) => ipcRenderer.send('writeUserData', data),
-  nextChallengePath: (data, challenge) => ipcRenderer.send('getNextChallengePath', data, challenge),
 })
 
 contextBridge.exposeInMainWorld('userData', { 
   getData: () => ipcRenderer.invoke('getData', null),
   getSavedDir: () => ipcRenderer.invoke('getSavedDir', null),
-  updateCurrentDirectory: (path) => {
-    const data = getSavedDir()
-    data.contents.savedDir = path
-    this.writeData(data)
-  }
+  updateCurrentDirectory: (dirPath) => ipcRenderer.invoke('updateCurrentDirectory', dirPath),
 })
 
 contextBridge.exposeInMainWorld('challenges', {
-  verifyChallenge: (currentChallenge) => ipcRenderer.invoke('verifyChallenge', currentChallenge),
+  verifyChallenge: (currentChallenge, path) => ipcRenderer.invoke('verifyChallenge', currentChallenge, path),
   markChallengeComplete: (challenge) => ipcRenderer.send('markChallengeComplete', challenge),
   resetChallenge: (challenge) => ipcRenderer.send('resetChallenge', challenge),
 })

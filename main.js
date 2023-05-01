@@ -103,9 +103,9 @@ app.on('ready', function appReady () {
     return JSON.parse(fs.readFileSync(path))
   })
   
-  ipcMain.handle('verifyChallenge', async (event, currentChallenge) => {
+  ipcMain.handle('verifyChallenge', async (event, currentChallenge, path) => {
     verify = require('./lib/verify/' + currentChallenge + '.js')
-    event.returnValue = await verify()
+    event.returnValue = await verify(path)
   })
   
   ipcMain.handle('getData', (event) => {
@@ -115,8 +115,13 @@ app.on('ready', function appReady () {
     return data
   })
 
-  ipcMain.handle('getSavedDir', function (event) {
-    event.returnValue = userData.getSavedDir()
+  ipcMain.handle('getSavedDir', (event) => {
+    const data = userData.getSavedDir()
+    return data
+  })
+  
+  ipcMain.handle('updateCurrentDirectory', (event, dirPath) => {
+    userData.updateCurrentDirectory(dirPath)
   })
 
   ipcMain.on('open-file-dialog', function (event) {
@@ -140,11 +145,13 @@ app.on('ready', function appReady () {
   
   ipcMain.handle('dialog:openDirectory', async () => {
     console.log("openDirectory handler called")
-    const { cancelled, dirPaths } = await dialog.showOpenDialog(mainWindow, { properties: ['openFile', 'openDirectory'] })
-    if (cancelled) {
+    const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, { properties: ['openFile', 'openDirectory'] })
+    console.log("canceled: ", canceled)
+    console.log("dirPaths: ", filePaths)
+    if (canceled) {
       return
     } else {
-      return dirPaths[0]
+      return filePaths[0]
     }
   })
 
