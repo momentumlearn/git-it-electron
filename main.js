@@ -5,11 +5,10 @@ const userData = require(path.join(__dirname, './lib/user-data.js'))
 
 const electron = require('electron')
 const locale = require('./lib/locale.js')
-const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const Menu = electron.Menu
-const ipcMain = electron.ipcMain
-const dialog = electron.dialog
+
+const { app, ipcMain, dialog, shell } = electron
 
 const darwinTemplate = require('./menus/darwin-menu.js')
 const otherTemplate = require('./menus/other-menu.js')
@@ -87,6 +86,10 @@ app.on('ready', function appReady () {
     mainWindow.webContents.openDevTools()
   }
   
+  ipcMain.on('openExternalLink', (event, url) => {
+    shell.openExternal(url)
+  })
+  
   ipcMain.on('markChallengeComplete', (event, challenge) => {
     userData.markChallengeComplete(challenge)
   })
@@ -109,9 +112,7 @@ app.on('ready', function appReady () {
   })
   
   ipcMain.handle('getData', (event) => {
-    console.log("getData handler called")
     const data = userData.getDataFromFile()
-    console.log("userData: ", data)
     return data
   })
 

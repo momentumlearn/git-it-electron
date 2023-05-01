@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer, shell } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron')
 
 // const fs = require('node:fs')
 
@@ -28,7 +28,7 @@ contextBridge.exposeInMainWorld('challenges', {
 })
 
 contextBridge.exposeInMainWorld('handleExternalLinks', {
-  openExternalLink: (url) => shell.openExternal(url),
+  openExternalLink: (url) => ipcRenderer.invoke('openExternalLink', url),
 })
 
 contextBridge.exposeInMainWorld('challengeHelper', {
