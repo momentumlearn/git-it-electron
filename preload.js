@@ -31,4 +31,5 @@ contextBridge.exposeInMainWorld('challengeHelper', {
   onError: (callback) => ipcRenderer.on('error', callback),
   onChallengeComplete: (callback) => ipcRenderer.on('challengeComplete', callback),
   onChallengeIncomplete: (callback) => ipcRenderer.on('challengeIncomplete', callback),
+  onResetDisplayedErrors: () => ipcRenderer.on('resetDisplayedErrors', callback),
 })

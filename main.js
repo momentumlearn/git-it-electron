@@ -108,7 +108,8 @@ app.on('ready', function appReady () {
   
   ipcMain.handle('verifyChallenge', async (event, currentChallenge, path) => {
     verify = require('./lib/verify/' + currentChallenge + '.js')
-    event.returnValue = await verify(path)
+    // event.returnValue = await verify(path)
+    return await verify(path)
   })
   
   ipcMain.handle('getData', (event) => {
@@ -144,14 +145,13 @@ app.on('ready', function appReady () {
     })
   })
   
-  ipcMain.handle('dialog:openDirectory', async () => {
+  ipcMain.handle('dialog:openDirectory', async (event) => {
     console.log("openDirectory handler called")
     const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, { properties: ['openFile', 'openDirectory'] })
-    console.log("canceled: ", canceled)
-    console.log("dirPaths: ", filePaths)
     if (canceled) {
       return
     } else {
+      event.sender.send('resetDisplayedErrors')
       return filePaths[0]
     }
   })

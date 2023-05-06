@@ -177,7 +177,11 @@ gre7-border.border-box code {
 }
 
 .verify-pass:before {
-  content: '✔️ ';
+  /* content: '✔️ '; */
+  content: url('../check-circle-24.svg');
+  padding: 4px;
+  color: var(--brand-branch-green);
+  vertical-align: middle;
 }
 
 #verify-list {
@@ -238,19 +242,45 @@ code.shell:before {
   opacity: 0.4;
 }
 
-.blue-border-box code {
-  border: none;
-  background: rgba(136, 204, 255, 0.15);
-}
-
-.prenext {
+.prenext {  
   overflow: auto;
 }
 
-.inline-tip {
+span.code-red {
+  color: #e05b6b;
+  /* color: #f83a0e */
+  /* color: #ef4795; */
+  /* color: #f32793; */
+}
+
+.blue-border-box code.code-block {
+  font-family: var(--mono-font);
+  display: block;
+  background-color: #000;
+  color: #1eadb3;
+  /* color: #32ece4; */
+  /* color: #54e3b6; */
+  /* color: #3ecdf5; */
+  white-space: pre;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 0;
+}
+
+.tip {
   font-style: normal;
   font-family: 'Liberation Mono', Monaco, Courier New, monospace;
   font-size: 0.7em;
+}
+
+p.tip {
+  font-style: normal;
+  font-family: 'Liberation Mono', Monaco, Courier New, monospace;
+  font-size: 0.7em;
+  padding-left: 1rem;
+  border-left: 4px solid var(--brand-branch-green)
 }
 
 /* PAGES STYLES
