@@ -18,6 +18,14 @@
   font-size: 1.4em;
 }
 
+.red-border.border-box {
+  border-color: var(--brand-royal-blue);
+}
+
+.red-border.border-box::before {
+  color: var(--brand-ruby-red);
+}
+
 .blue-border.border-box {
   border-color: var(--brand-sky-blue);
 }
@@ -48,6 +56,10 @@
 
 .chal-goal.border-box::before {
   content: 'Goal';
+}
+
+.chal-verify.border-box::before {
+  content: 'Verify';
 }
 
 .blue-border.border-box code {
@@ -199,6 +211,8 @@ gre7-border.border-box code {
 #challenge-result {
   margin: 20px 0;
   font-style: italic;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 #challenge-completed {
@@ -225,6 +239,14 @@ gre7-border.border-box code {
   background-color: #e0e0e0;
 }
 
+#next-challenge-link {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#next-challenge-link a {
+  color: var(--brand-royal-blue);
+}
 /* CODE STYLES
    -------------------------------------------------------------------------- */
 
@@ -234,7 +256,8 @@ code {
   padding: 6px 6px 3px 6px;
   border-radius: 2px;
   font-family: var(--mono-font);
-  white-space: nowrap;
+  white-space: pre-wrap;
+  display: block;
 }
 
 code.shell:before {
@@ -253,6 +276,14 @@ span.code-red {
   /* color: #f32793; */
 }
 
+.code--inline {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 2px;
+  font-family: var(--mono-font);
+  white-space: pre-wrap;
+}
+
 .blue-border-box code.code-block {
   font-family: var(--mono-font);
   display: block;
@@ -269,6 +300,10 @@ span.code-red {
   padding: 0;
 }
 
+.mono-font {
+  font-family: var(--mono-font);
+}
+
 .tip {
   font-style: normal;
   font-family: 'Liberation Mono', Monaco, Courier New, monospace;
@@ -280,7 +315,8 @@ p.tip {
   font-family: 'Liberation Mono', Monaco, Courier New, monospace;
   font-size: 0.7em;
   padding-left: 1rem;
-  border-left: 4px solid var(--brand-branch-green)
+  border-left: 4px solid var(--brand-branch-green);
+  line-height: 1.5rem;
 }
 
 /* PAGES STYLES
@@ -301,4 +337,9 @@ p.tip {
 
 button#clear-completed-status {
   display: none;
+  margin-top: 1.5rem;
+}
+
+.completed-message {
+  font-size: 1.5rem;
 }

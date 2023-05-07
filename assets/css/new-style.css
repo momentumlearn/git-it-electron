@@ -137,7 +137,7 @@ ul.no-list-style {
   text-transform: capitalize;
   font-size: 19px;
   font-weight: 800;
-  color: #4BABFF;
+  color: var(--brand-royal-blue);
   line-height: 1;
   display: inline-block;
 }
@@ -149,7 +149,7 @@ ul.no-list-style {
 }
 
 .filledblock:hover {
-  background: #4BABFF;
+  background: var(--brand-royal-blue);
   color: #fff;
   border-radius: 2px;
 }
@@ -162,6 +162,7 @@ ul.no-list-style {
    position: fixed;
    height: 100%;
    background-color: #fff;
+   min-width: fit-content;
  }
 
 .list-of-challenges {

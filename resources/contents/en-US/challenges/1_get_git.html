@@ -1,66 +1,113 @@
 <div id="challenge-desc" class="chal-goal blue-border border-box">
-    <p>Verify that Git is installed on your computer and check its configuration.</p>
+  <p>
+    Verify that Git is installed on your computer and check its configuration.
+  </p>
 </div>
 
 <div class="chal-background light-blue solid-box">
-    <h2>Git</h2>
-    <p>Git is free <strong>open source software</strong> (the <a href="https://github.com/git/git">source code is
-        public</a>) written by Linus Torvalds who also wrote the Linux operating system's kernel. </p>
-    <p>Git is a program for keeping track of changes over time, known in programming as <strong>version control</strong>.
-        If you've used a "track changes" feature in a text editing software then you're already familiar with the concept!
-    </p>
+  <h2>Git</h2>
+  <p>
+    Git is free <strong>open source software</strong> (the
+    <a href="https://github.com/git/git">source code is public</a>) written by
+    Linus Torvalds who also wrote the Linux operating system's kernel.
+  </p>
+  <p>
+    Git is a program for keeping track of changes over time, known in
+    programming as <strong>version control</strong>. If you've used a "track
+    changes" feature in a text editing software then you're already familiar
+    with the concept!
+  </p>
 </div>
 
 <div class="chal-step blue-border border-box">
-    <h3>Confirm Git Configuration</h3>
-    <p>In the computer set-up instructions, we asked you to install Git using Homebrew, and to configure your name, email, and a few default settings.</p>
-    <p>In this step we'll check that configuration.</p>
-    
-    <p>Open your <strong>terminal</strong>. We're using iTerm2 as our terminal program at Momentum.</p>
-    <p>You do this by using command-spacebar to open the Spotlight Search bar that is built into Mac OS, and type "iterm". </p>
-     
-    <p>You can verify that Git is available at your command line by typing:</p>
+  <h3>Confirm Git Configuration</h3>
+  <p>
+    In the computer set-up instructions, we asked you to install Git using
+    Homebrew, and to configure your name, email, and a few default settings.
+  </p>
+  <p>In this step we'll check that configuration.</p>
 
-    <p><code class="shell">git --version</code></p>
+  <p>
+    Open your <strong>terminal</strong>. We're using iTerm2 as our terminal
+    program at Momentum.
+  </p>
+  <p>
+    You do this by using command-spacebar to open the Spotlight Search bar that
+    is built into Mac OS, and type "iterm".
+  </p>
 
-    <p>This will return the version of Git on your computer and look something like this:</p>
+  <p>You can verify that Git is available at your command line by typing:</p>
 
-    <p><code class="comment">git version 2.40.0</code></p>
+  <p><code class="shell">git --version</code></p>
 
-    <p>The set-up instructions had you configure Git so it is able to associate your work to you. Check to see if it is configured properly:</p>
-    
-    <h4>Check to see if your name is configured in Git.</h4>
-    <p>This command should print out your name:</p>
-    <p><code class="shell">git config --global user.name</code></p>
-    <p>If it's missing or incorrect, set it now with this command:</p>
-    <p><code class="shell">git config --global user.name "Your Name"</code></p>
+  <p>
+    This will return the version of Git on your computer and look something like
+    this:
+  </p>
 
-    <h4>Check to see if your email is configured in Git.</h4>
-    <p>This command should print out your email:</p>
-    <p><code class="shell">git config --global user.email</code></p>
-    <p>If it's missing or incorrect, set it now with this command:</p>
-    <p><code class="shell">git config --global user.email "your_email@youremail.com"</code></p>
-    
-    <h4>Check to see if your default branch is configured in Git.</h4>
-    <p>This command should show that your default branch is set to <code class="comment">main</code>:</p>
-    <p><code class="shell">git config --global init.defaultBranch</code></p>
-    <p>If it's missing or incorrect, set it now with this command</p>
-    <p><code class="shell">git config --global init.defaultBranch main</code></p>
+  <p><code class="comment">git version 2.40.0</code></p>
 
-    <h4>Check to see if a default merge strategy is configured in Git.</h4>
-    <p>This command should show that the rebase merge strategy is set to <code class="comment">false</code>:</p>
-    <p><code class="shell">git config --global pull.rebase</code></p>
-    <p>If it's missing or incorrect, set it now with this command</p>
-    <p><code class="shell">git config --global pull.rebase false</code></p>
-    
-    <p>You're done with your first challenge! Click the 'Verify' button to check the challenge.</p>
+  <p>
+    The set-up instructions had you configure Git so it is able to associate
+    your work to you. Check to see if it is configured properly:
+  </p>
+
+  <h4>Check to see if your name is configured in Git.</h4>
+  <p>This command should print out your name:</p>
+  <p><code class="shell">git config --global user.name</code></p>
+  <p>If it's missing or incorrect, set it now with this command:</p>
+  <p><code class="shell">git config --global user.name "Your Name"</code></p>
+
+  <h4>Check to see if your email is configured in Git.</h4>
+  <p>This command should print out your email:</p>
+  <p><code class="shell">git config --global user.email</code></p>
+  <p>If it's missing or incorrect, set it now with this command:</p>
+  <p>
+    <code class="shell"
+      >git config --global user.email "your_email@youremail.com"</code
+    >
+  </p>
+
+  <h4>Check to see if your default branch is configured in Git.</h4>
+  <p>
+    This command should show that your default branch is set to
+    <code class="code--inline">main</code>:
+  </p>
+  <p><code class="shell">git config --global init.defaultBranch</code></p>
+  <p>If it's missing or incorrect, set it now with this command</p>
+  <p><code class="shell">git config --global init.defaultBranch main</code></p>
+
+  <h4>Check to see if a default merge strategy is configured in Git.</h4>
+  <p>
+    This command should show that the rebase merge strategy is set to
+    <code class="code--inline">false</code>:
+  </p>
+  <p><code class="shell">git config --global pull.rebase</code></p>
+  <p>If it's missing or incorrect, set it now with this command</p>
+  <p><code class="shell">git config --global pull.rebase false</code></p>
+
+  <p>
+    You're done with your first challenge! Click the 'Verify' button to check
+    the challenge.
+  </p>
+</div>
+
+<div class="chal-verify red-border border-box">
+  <p>
+    Click the 'Verify' button to confirm that you have configured git with your
+    username, email, default branch, and default merge strategy.
+  </p>
 </div>
 
 {{{ verify_button }}}
 
 <div class="chal-tip grey-border border-box">
-    <h3>Dollar Signs in Code Documentation</h3>
-    <p>Dollar signs <code>$</code> are often used in programming documentation to signify that the line is <strong>command
-        line</strong> code (see the code snippets above). You don't actually type the <code>$</code> in though, only
-        type what comes after.</p>
+  <h3>Dollar Signs in Code Documentation</h3>
+  <p>
+    Dollar signs <code class="code--inline">$</code> are often used in
+    programming documentation to signify that the line is
+    <strong>command line</strong> code (see the code snippets above). You don't
+    actually type the <code class="code--inline">$</code> in though; only type
+    what comes after.
+  </p>
 </div>
