@@ -6,19 +6,23 @@ contextBridge.exposeInMainWorld('electronAPI', {
 
 contextBridge.exposeInMainWorld('challengesCompleted', {
   confirmClear: () => ipcRenderer.invoke('dialog:confirmClear'),
-  confirmClearResponse: (callback) => ipcRenderer.on('dialog:confirmClearResponse', callback),
+  confirmClearResponse: (callback) =>
+    ipcRenderer.on('dialog:confirmClearResponse', callback),
   writeUserData: (data) => ipcRenderer.send('writeUserData', data),
 })
 
-contextBridge.exposeInMainWorld('userData', { 
+contextBridge.exposeInMainWorld('userData', {
   getData: () => ipcRenderer.invoke('getData', null),
   getSavedDir: () => ipcRenderer.invoke('getSavedDir', null),
-  updateCurrentDirectory: (dirPath) => ipcRenderer.invoke('updateCurrentDirectory', dirPath),
+  updateCurrentDirectory: (dirPath) =>
+    ipcRenderer.invoke('updateCurrentDirectory', dirPath),
 })
 
 contextBridge.exposeInMainWorld('challenges', {
-  verifyChallenge: (currentChallenge, path) => ipcRenderer.invoke('verifyChallenge', currentChallenge, path),
-  markChallengeComplete: (challenge) => ipcRenderer.send('markChallengeComplete', challenge),
+  verifyChallenge: (currentChallenge, path) =>
+    ipcRenderer.invoke('verifyChallenge', currentChallenge, path),
+  markChallengeComplete: (challenge) =>
+    ipcRenderer.send('markChallengeComplete', challenge),
   resetChallenge: (challenge) => ipcRenderer.send('resetChallenge', challenge),
 })
 
@@ -29,7 +33,10 @@ contextBridge.exposeInMainWorld('handleExternalLinks', {
 contextBridge.exposeInMainWorld('challengeHelper', {
   onDisplayResults: (callback) => ipcRenderer.on('displayResults', callback),
   onError: (callback) => ipcRenderer.on('error', callback),
-  onChallengeComplete: (callback) => ipcRenderer.on('challengeComplete', callback),
-  onChallengeIncomplete: (callback) => ipcRenderer.on('challengeIncomplete', callback),
-  onResetDisplayedErrors: () => ipcRenderer.on('resetDisplayedErrors', callback),
+  onChallengeComplete: (callback) =>
+    ipcRenderer.on('challengeComplete', callback),
+  onChallengeIncomplete: (callback) =>
+    ipcRenderer.on('challengeIncomplete', callback),
+  onResetDisplayedErrors: (callback) =>
+    ipcRenderer.on('resetDisplayedErrors', callback),
 })
