@@ -86,7 +86,7 @@ app.on('ready', function appReady () {
     mainWindow.webContents.openDevTools()
   }
   
-  ipcMain.on('openExternalLink', (event, url) => {
+  ipcMain.handle('openExternalLink', (event, url) => {
     shell.openExternal(url)
   })
   
