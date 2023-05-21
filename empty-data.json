@@ -26,10 +26,10 @@
   "remote_control": {
     "completed": false,
     "current_challenge": false,
-    "next_challenge": "forks_and_clones",
+    "next_challenge": "workflow",
     "previous_challenge": "githubbin"
   },
-  "forks_and_clones": {
+  "workflow": {
     "completed": false,
     "current_challenge": false,
     "next_challenge": "branches_arent_just_for_birds",
@@ -39,7 +39,7 @@
     "completed": false,
     "current_challenge": false,
     "next_challenge": "its_a_small_world",
-    "previous_challenge": "forks_and_clones"
+    "previous_challenge": "workflow"
   },
   "its_a_small_world": {
     "completed": false,

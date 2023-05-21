@@ -273,10 +273,11 @@ code.shell:before {
 }
 
 span.code-red {
-  color: #e05b6b;
-  /* color: #f83a0e */
-  /* color: #ef4795; */
-  /* color: #f32793; */
+  color: var(--brand-ruby-red);
+}
+
+span.code-green {
+  color: var(--brand-branch-green);
 }
 
 .code--inline {

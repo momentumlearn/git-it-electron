@@ -1,0 +1,168 @@
+<div id="challenge-desc" class="chal-goal blue-border border-box">
+  <p>Practice adding, committing, and pushing your changes to GitHub.</p>
+</div>
+
+<div class="chal-background light-blue solid-box">
+  <h2>Workflow</h2>
+
+  <p>
+    A <strong>workflow</strong> is a set of practices that developers working
+    together agree upon and follow to ensure that changes to the codebase are
+    properly tracked, reviewed, and integrated into the project.
+  </p>
+
+  <p>
+    Different engineering organizations or teams may have different workflows
+    adapted to the specific kind of work they are doing. At Momentum, while you
+    are learning how to write code, you'll follow a short and simple workflow.
+    Later on, you'll learn a more complicated one.
+  </p>
+
+  <p>The basic workflow you will follow for your projects looks like this:</p>
+  <ol>
+    <li><strong>Clone</strong> a project repo from GitHub.</li>
+    <li><strong>Work</strong> on your code in your editor.</li>
+    <li>In your local repository, <strong>add</strong> changes as you work.</li>
+    <li><strong>Commit</strong> the changes in your local repository.</li>
+    <li><strong>Push</strong> the changes to the project repo on GitHub.</li>
+  </ol>
+  
+  <p>Let's practice doing this some more so that it starts to become familiar.</p>
+</div>
+
+<div class="chal-step blue-border border-box">
+  <h3>Make changes in your project</h3>
+  
+  <p>Let's open up the project in your code editor again and make some changes!</p>
+  <p>
+    In your terminal, make sure you are still in your project directory. Remember that to open your "hello-world" project in VS Code, you can run this command:
+  </p>
+  <p><code class="shell">code .</code></p>
+  
+  <p>Edit the text in the "readme.txt" file you created earlier. The specific text doesn't matter. Perhaps a haiku? </p>
+  
+  <code>
+    Git add, commit, push.
+    Tracks of changes in the code,
+    History written.
+  </code>
+  
+  <p>Don't forget to save your changes.</p>
+</div>
+
+<div class="chal-step blue-border border-box">
+  <h3>Check Status</h3>
+  <p>
+    Back in the terminal, you can manage the changes you have made and decide when to commit them. The <strong>status</strong> command will give you a report on what's changed. You should get in the habit of checking it anytime you are thinking about making a commit.
+  </p>
+
+  <p>
+    Make sure you're still within your 'hello-world' directory when you're
+    running these commands.
+  </p>
+
+  <p>Check the status of your repo:</p>
+  <p><code class="shell">git status</code></p>
+  <p>
+    You should see something like this:
+  </p>
+
+  <pre><code classname="code-block">
+    On branch main
+    Changes not staged for commit:
+      (use "git add &lt;file&gt;..." to update what will be committed)
+      (use "git restore &lt;file&gt;..." to discard changes in working directory)
+            modified: <span class="code-red">readme.txt</span>
+    
+    no changes added to commit (use "git add" and/or "git commit -a")
+    </code></pre>
+</div>
+
+<div class="chal-step blue-border border-box">
+  <h3>Add Changes</h3>
+
+  <p>You should still be within your 'hello-world' directory for this step.</p>
+
+  <p>
+    Remember that the <strong>add</strong> command means <em>mark these changes to be included in the next commit.</em> Another term used to describe adding files before committing in Git is "staging." You "stage" files to be committed.
+  </p>
+
+  <p>
+    Remember how to add a file?
+  </p>
+  <p><code class="shell">git add readme.txt</code></p>
+
+  <p>
+    Run <code class="code--inline">git status</code> again after you have run
+    this command to confirm that your changes have been added.
+  </p>
+
+  <p>You should see something like this:</p>
+  
+  <pre><code classname="code-block">
+    On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified: <span class="code-green">readme.txt</span>
+    </code></pre>
+    
+    <p>The filename highlighted in green indicates that the changes in that file will be included the next time you make a commit.</p>
+</div>
+
+<div class="chal-step blue-border border-box">
+  <h3>Commit Changes</h3>
+
+  <p>
+    Once you have staged your changes, you can make a commit any time you are ready. Anything that has been added (aka staged) will be included in the next commit.
+  </p>
+
+  <p>You should still be within your 'hello-world' directory for this step.</p>
+
+  <p>
+    To <strong>commit</strong> the changes to the repo's history , run this command. The message should describe why you made the changes.
+  </p>
+  <p><code class="shell">git commit -m "Include a haiku in praise of git"</code></p>
+
+  <p>After you have run the commit command, run <span class="code--inline">git status</span> again. You should see the following:</p>
+
+  <code class="shell">
+    On branch main
+    nothing to commit, working tree clean
+  </code>
+  
+  <p>This message lets you know that there aren't any uncommitted changes anymore, which is what we expect after making a commit!</p>
+</div> 
+
+<div class="chal-step blue-border border-box">
+  <h3>Push to your Remote</h3>
+  <p>
+    You don't have to push after every commit. You can decide when you want to push. When you push, all the commits that you have made locally since the last time you pushed will be included. It's a good idea to do this often, so that your remote repo is always up to date, but when is up to you.
+  </p>
+
+  <p>When you're ready, push your latest changes to the main branch on your remote repo.</p>
+  <code class="shell">git push origin main</code>
+
+  <p>Go to your repo's main page on GitHub. Above the section with the file(s) you should see a link to commits, with a number and an icon that looks like a clock with an arrow around it. If you click that link you will see a page with a list of your commits, identical to the list of commits in your local repo.</p>
+</div>
+
+{{{ verify_directory_button }}}
+
+<div class="chal-tip grey-border border-box">
+  <ul class="no-list-style">
+    <li><strong>Check status of changes to a repository</strong></li>
+    <li><code class="shell">git status</code></li>
+    <li><strong>View changes to files</strong></li>
+    <li><code class="shell">git diff</code></li>
+    <li><strong>Add a file's changes to be committed</strong></li>
+    <li><code class="shell">git add &#60;FILENAME&#62;</code></li>
+    <li><strong>To add changes in all files</strong></li>
+    <li><code class="shell">git add .</code></li>
+    <li>
+      <strong
+        >To commit the changes you've added with a short message describing the
+        changes</strong
+      >
+    </li>
+    <li><code class="shell">git commit -m "your commit message"</code></li>
+  </ul>
+</div>
