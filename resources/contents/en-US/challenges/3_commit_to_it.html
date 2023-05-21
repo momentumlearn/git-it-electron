@@ -1,43 +1,66 @@
 <div id="challenge-desc" class="chal-goal blue-border border-box">
-    <p>Create a file in your new repository, add something to that file and commit that change with Git.</p>
+  <p>
+    Create a file in your new repository, add something to that file and commit
+    that change with Git.
+  </p>
 </div>
 
 <div class="chal-background light-blue solid-box">
-    <h2>Commits</h2>
-    <p>Commits are core to using Git. They are the moments in which you save and describe the work you've done. They are
-        the ticks in the timeline of your project's history.</p>
+  <h2>Commits</h2>
+  <p>
+    Commits are core to using Git. They are the moments in which you save and
+    describe the work you've done. They are the ticks in the timeline of your
+    project's history.
+  </p>
 </div>
 
 <div class="chal-step blue-border border-box">
-    <h3>Create a New File</h3>
-    <p>Now that you've got a repository started, let's add a file to it.</p>
-    <p>
-      Create a new empty file inside the 'hello-world' directory you created in the last challenge. 
-      We can use the <code class="code--inline">touch</code> command to do this from the command line.
-    </p>
-    <p><code class="shell">touch readme.txt</code></p>
-    
-    <p>Now open the file in your code editor and write a little bit of text (perhaps type "Hello World!") and
-        save the file. To open the current working directory in VS Code, you can run this command:</p>
-    <p><code class="shell">code .</code></p>
-    <p class="tip">💁‍♀️ Don't forget the dot at the end of that command! That dot is the special shell shortcut that represents 
-      the current working directory.</p>
-    </p>
+  <h3>Create a New File</h3>
+  <p>Now that you've got a repository started, let's add a file to it.</p>
+  <p>
+    Create a new empty file inside the 'hello-world' directory you created in
+    the last challenge. We can use the
+    <code class="code--inline">touch</code> command to do this from the command
+    line.
+  </p>
+  <p><code class="shell">touch readme.txt</code></p>
+
+  <p>
+    Now open the file in your code editor and write a little bit of text
+    (perhaps type "Hello World!") and save the file. To open the current working
+    directory in VS Code, you can run this command:
+  </p>
+  <p><code class="shell">code .</code></p>
+  <p class="tip">
+    💁‍♀️ Don't forget the dot at the end of that command! That dot is the special
+    shell shortcut that represents the current working directory.
+  </p>
 </div>
 
 <div class="chal-step blue-border border-box">
-    <h3>Check Status </h3>
-    <p>Next check the <strong>status</strong> of your repository to find out if there have been changes. You know you
-        have changed something, but does Git?</p>
+  <h3>Check Status</h3>
+  <p>
+    Next check the <strong>status</strong> of your repository to find out if
+    there have been changes. You know you have changed something, but does Git?
+  </p>
 
-    <p>Make sure you're still within your 'hello-world' directory when you're running these commands.</p>
+  <p>
+    Make sure you're still within your 'hello-world' directory when you're
+    running these commands.
+  </p>
 
-    <p>Check the status of your repo:</p>
-    <p><code class="shell">git status</code></p>
-    <p>This command doesn't change anything; it only reports on what's happening in your repo.</p>
-    <p>You will see the path of the file that has been created, along with some other information about the repo.</p>
+  <p>Check the status of your repo:</p>
+  <p><code class="shell">git status</code></p>
+  <p>
+    This command doesn't change anything; it only reports on what's happening in
+    your repo.
+  </p>
+  <p>
+    You will see the path of the file that has been created, along with some
+    other information about the repo.
+  </p>
 
-    <pre><code classname="code-block">
+  <pre><code classname="code-block">
       On branch main
       No commits yet
       Untracked files:
@@ -52,68 +75,102 @@
 
   <p>You should still be within your 'hello-world' directory for this step.</p>
 
-  <p>Now that we've made some changes, let's tell Git that we want to include them in a snapshot of changes for this repo.</p>
-  <p>The <strong>add</strong> command means <em>mark these changes to be included in the next commit.</em></p>
-  
-  <p>To <strong>add</strong> the file you just created so that it becomes a part of the changes you will <strong>commit</strong>
-      (aka save) with Git, run the <strong>add</strong> command followed by the path of the changed file:</p>
-  <p><code class="shell">git add readme.txt</code></p>
-  
-  <p>Run <code class="code--inline">git status</code> again after you have run this command to confirm that your changes have been added.</p>
+  <p>
+    Now that we've made some changes, let's tell Git that we want to include
+    them in a snapshot of changes for this repo.
+  </p>
+  <p>
+    The <strong>add</strong> command means
+    <em>mark these changes to be included in the next commit.</em>
+  </p>
 
-  <p class="tip">💁‍♀️ We only have one file to add here, but you can add as many files, and changes to files, as you want. You can run this command several times with different file paths, or once with multiple file paths.</p>
+  <p>
+    To <strong>add</strong> the file you just created so that it becomes a part
+    of the changes you will <strong>commit</strong> (aka save) with Git, run the
+    <strong>add</strong> command followed by the path of the changed file:
+  </p>
+  <p><code class="shell">git add readme.txt</code></p>
+
+  <p>
+    Run <code class="code--inline">git status</code> again after you have run
+    this command to confirm that your changes have been added.
+  </p>
+
+  <p class="tip">
+    💁‍♀️ We only have one file to add here, but you can add as many files, and
+    changes to files, as you want. You can run this command several times with
+    different file paths, or once with multiple file paths.
+  </p>
 </div>
 
 <div class="chal-step blue-border border-box">
   <h3>Commit Changes</h3>
 
-  <p>Now that we have marked our file for committing, we are ready to actually make the commit.</p>
-  
-  <p>You should still be within your 'hello-world' directory for this step.</p>
-  
-  <p>To <strong>commit</strong> means to save a snapshot of changes at this point in the project. It's our first commit, so it's adding an 
-    entire new file and its contents. When we create a commit, we'll include a brief <em>message</em> that describes 
-    the reason the commit is being made.
+  <p>
+    Now that we have marked our file for committing, we are ready to actually
+    make the commit.
   </p>
 
-  <p>This command will <strong>commit</strong> the changes to the repo's history and allow you to write a
-      short message describing the updates.</p>
+  <p>You should still be within your 'hello-world' directory for this step.</p>
+
+  <p>
+    To <strong>commit</strong> means to save a snapshot of changes at this point
+    in the project. It's our first commit, so it's adding an entire new file and
+    its contents. When we create a commit, we'll include a brief
+    <em>message</em> that describes the reason the commit is being made.
+  </p>
+
+  <p>
+    This command will <strong>commit</strong> the changes to the repo's history
+    and allow you to write a short message describing the updates.
+  </p>
   <p><code class="shell">git commit -m "Create readme"</code></p>
 </div>
 
 <div class="chal-step blue-border border-box">
-    <h3>Make More Changes</h3>
-    <p>Now add another line to 'readme.txt', and save the file again in your text editor.</p>
+  <h3>Make More Changes</h3>
+  <p>
+    Now add another line to 'readme.txt', and save the file again in your text
+    editor.
+  </p>
 
-    <p>In <thead></thead> terminal, you can view the <strong>diff</strong>erence between the file now and how it was at your last
-        commit.</p>
+  <p>
+    In the terminal, you can view the <strong>diff</strong>erence between the file now and how it was at your last commit.
+  </p>
 
-    <p>Tell Git to show you the <strong>diff</strong>:</p>
-    <p><code class="shell">git diff</code></p>
+  <p>Tell Git to show you the <strong>diff</strong>:</p>
+  <p><code class="shell">git diff</code></p>
 
-    <p>Now with what you just learned above, add and commit this latest change.</p>
+  <p>
+    Now with what you just learned above, add and commit this latest change.
+  </p>
 </div>
 
 <div class="chal-verify red-border border-box">
   <p>
-    Click the 'Verify' button to confirm that you have committed the changes to your repository.
+    Click the 'Verify' button to confirm that you have committed the changes to
+    your repository.
   </p>
 </div>
 
 {{{ verify_directory_button }}}
 
 <div class="chal-tip grey-border border-box">
-    <ul class="no-list-style">
-        <li><strong>Check status of changes to a repository</strong></li>
-        <li><code class="shell">git status</code></li>
-        <li><strong>View changes to files</strong></li>
-        <li><code class="shell">git diff</code></li>
-        <li><strong>Add a file's changes to be committed</strong></li>
-        <li><code class="shell">git add &#60;FILENAME&#62;</code></li>
-        <li><strong>To add changes in all files</strong></li>
-        <li><code class="shell">git add .</code></li>
-        <li><strong>To commit the changes you've added with a short message describing the changes</strong>
-        </li>
-        <li><code class="shell">git commit -m "your commit message"</code></li>
-        <ul>
+  <ul class="no-list-style">
+    <li><strong>Check status of changes to a repository</strong></li>
+    <li><code class="shell">git status</code></li>
+    <li><strong>View changes to files</strong></li>
+    <li><code class="shell">git diff</code></li>
+    <li><strong>Add a file's changes to be committed</strong></li>
+    <li><code class="shell">git add &#60;FILENAME&#62;</code></li>
+    <li><strong>To add changes in all files</strong></li>
+    <li><code class="shell">git add .</code></li>
+    <li>
+      <strong
+        >To commit the changes you've added with a short message describing the
+        changes</strong
+      >
+    </li>
+    <li><code class="shell">git commit -m "your commit message"</code></li>
+  </ul>
 </div>
