@@ -32,37 +32,7 @@
   "workflow": {
     "completed": false,
     "current_challenge": false,
-    "next_challenge": "branches_arent_just_for_birds",
+    "next_challenge": "",
     "previous_challenge": "remote_control"
-  },
-  "branches_arent_just_for_birds": {
-    "completed": false,
-    "current_challenge": false,
-    "next_challenge": "its_a_small_world",
-    "previous_challenge": "workflow"
-  },
-  "its_a_small_world": {
-    "completed": false,
-    "current_challenge": false,
-    "next_challenge": "pull_never_out_of_date",
-    "previous_challenge": "branches_arent_just_for_birds"
-  },
-  "pull_never_out_of_date": {
-    "completed": false,
-    "current_challenge": false,
-    "next_challenge": "requesting_you_pull_please",
-    "previous_challenge": "its_a_small_world"
-  },
-  "requesting_you_pull_please": {
-    "completed": false,
-    "current_challenge": false,
-    "next_challenge": "merge_tada",
-    "previous_challenge": "pull_never_out_of_date"
-  },
-  "merge_tada": {
-    "completed": false,
-    "current_challenge": false,
-    "next_challenge": "get_git",
-    "previous_challenge": "requesting_you_pull_please"
   }
 }
