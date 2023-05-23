@@ -1,0 +1,193 @@
+<div id="challenge-desc" class="chal-goal blue-border border-box">
+  <p>Practice managing multiple files in your Git repo.</p>
+</div>
+
+<div class="chal-background light-blue solid-box">
+  <h2>Include or Exclude Changes to Compose Commits</h2>
+
+  <p>
+    As you learned earlier, a commit is a snapshot of changes made in a project.
+    As you work, you make more and more commits. Commits become the project
+    <strong>history</strong>, telling the story of the project's development.
+  </p>
+
+  <p>
+    A commit can include related changes from a single file or from many files.
+    It's up to you! Generally we want to make smaller, more frequent commits to
+    keep our history organized and understandable. Doing that will take some
+    practice, and it will get easier with experience.
+  </p>
+
+  <p>Let's practice managing changes in multiple files.</p>
+</div>
+
+<div class="chal-step blue-border border-box">
+  <h3>Create a new file</h3>
+
+  <p>
+    Remember the command for creating a new file from the command line? Create a
+    file named "demo.txt" in your repo.
+  </p>
+  <p><code class="shell">touch demo.txt</code></p>
+
+  <p>
+    Now open your code editor and put some content in that file. As the file
+    extension (".txt") tells us, this is a plain text file, so you can put any
+    text you want here.
+  </p>
+
+  <p class="tip">
+    💁🏽‍♀️ A file extension can be included at the end of a filename as a period (a
+    "dot") followed by a few letters that indicate the content and purpose of
+    the file. You may have seen image files with a ".png" or ".jpg" extension,
+    ".doc" or ".docx" for Microsoft Word documents, or ".pdf" for PDF files.
+    You'll see many more.
+  </p>
+</div>
+
+<div class="chal-step blue-border border-box">
+  <h3>Make changes to another file</h3>
+
+  <p>
+    Now delete the last line of "readme.txt", and save the file again in your
+    text editor.
+  </p>
+
+  <p>
+    Go back to your terminal and run
+    <span class="code--inline">git status</span> to see what's changed. You
+    should see the following:
+  </p>
+  <pre><code classname="code-block">
+    On branch main
+    Changes not staged for commit:
+      (use "git add &lt;file&gt;..." to update what will be committed)
+      (use "git restore &lt;file&gt;..." to discard changes in working directory)
+      modified:   <span class="code-red">readme.txt</span>
+
+    Untracked files:
+      (use "git add &lt;file&gt;..." to include in what will be committed)
+      <span class="code-red">demo.txt</span>
+
+    no changes added to commit (use "git add" and/or "git commit -a")
+    
+  </code></pre>
+
+  <p>
+    Notice how your status gives you helpful suggestions for relevant commands.
+    It's a good idea to read and consider these, though you don't have to do any
+    of these suggestions now (or ever).
+  </p>
+
+  <p>
+    For now, we will leave these changes unstaged while we take a closer look.
+  </p>
+
+  <div class="chal-step blue-border border-box">
+    <h3>What's the diff?</h3>
+
+    <p>
+      We learned in an earlier lesson how to show the difference between our
+      unstaged changes and the last commit. Like
+      <span class="code--inline">git status</span>, this command doesn't change
+      anything. It just reports back to you with some helpful information. Let's
+      check it out now:
+    </p>
+
+    <p><code class="shell">git diff</code></p>
+
+    <p>Read the output in your terminal.</p>
+
+    <p>
+      Notice that Git is showing you the deleted content from the "readme.txt"
+      file, but the diff doesn't show anything about "demo.txt".
+    </p>
+
+    <p>
+      That is because "demo.txt" is still "untracked" -- it's a new file that
+      Git hasn't started tracking yet, so it can't tell you what's changed. It's
+      all new, and there is no diff yet!
+    </p>
+  </div>
+
+  <div class="chal-step blue-border border-box">
+    <h3>Stage some changes but don't commit yet</h3>
+    <p>
+      What if we wanted to commit changes in some files but not others? We want
+      to compose commits thoughtfully with related changes, so sometimes it
+      makes sense to exclude some work and save it for a later commit.
+    </p>
+
+    <p>
+      Let's stage the changes only from "demo.txt" and leave out the changes
+      from "readme.txt". How would you do this?
+    </p>
+
+    <p>Here's what you will see if you do this step correctly:</p>
+
+    <pre><code classname="code-block">
+    On branch main
+    Changes to be committed:
+      (use "git restore --staged &lt;file&gt;..." to unstage)
+      new file:   <span class="code-green">demo.txt</span>
+
+    Changes not staged for commit:
+      (use "git add &lt;file&gt;..." to update what will be committed)
+      (use "git restore &lt;file&gt;..." to discard changes in working directory)
+      modified:   <span class="code-red">readme.txt</span>
+  </code></pre>
+
+    <p>
+      Give it a go -- and if you need a reminder, look at earlier steps for
+      guidance!
+    </p>
+  </div>
+  <!-- check changes are committed for one file but not the other.  -->
+
+  <div class="chal-verify red-border border-box">
+    <p>
+      Click the 'Verify' button to confirm that changes are staged for one file
+      but not the other.
+    </p>
+  </div>
+
+  {{{ verify_directory_button }}}
+
+  <div class="chal-no-pass grey-border border-box">
+    <h3>Troubleshooting</h3>
+    <p>Here are some possible reasons you haven't passed this challenge.</p>
+    
+    <h4>You didn't stage the new file</h4>
+    <p>To stage a file, you need to use this command:</p>
+    <p><code class="shell">git add &#60;FILENAME&#62;</code></p>
+    
+    <h4>You staged readme.txt</h4>
+    <p>
+      We can unstage this file while leaving the changes as they are. To unstage
+      a file, use this command:
+    </p>
+    <p><code class="shell">git reset &#60;FILENAME&#62;</code></p>
+
+    <h4>You didn't make changes in both files</h4>
+    <p>Open up your code editor and make the changes as instructed above.</p>
+
+  
+
+    <h4>You staged the file but the challenge still fails.</h4>
+    <p>
+      It's possible that your filename is incorrect. Check for whitespace and
+      letters that should not be capitalized. For example, "Demo.txt" with a
+      capital "D" is not the same as "demo.txt".
+    </p>
+
+    <h4>You committed your changes.</h4>
+    <p>
+      This challenge is only looking for staged changes. So, if you staged your
+      changes and then went ahead and committed, the changes have moved from
+      being staged to being committed, and so git doesn't find any changes in
+      the "staging area". If this happens to you, just repeat the step above to
+      make changes in "demo.txt", then stage the changes in that file, and click
+      "Verify" again.
+    </p>
+  </div>
+</div>
