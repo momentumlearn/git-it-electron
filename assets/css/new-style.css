@@ -13,7 +13,10 @@ body {
   margin: 0;
 }
 
-div, header, select, a {
+div,
+header,
+select,
+a {
   box-sizing: border-box;
 }
 
@@ -157,13 +160,13 @@ ul.no-list-style {
 /* SIDEBAR
    -------------------------------------------------------------------------- */
 
- .sidebar {
-   width: 26%;
-   position: fixed;
-   height: 100%;
-   background-color: #fff;
-   min-width: fit-content;
- }
+.sidebar {
+  width: 26%;
+  position: fixed;
+  height: 100%;
+  background-color: #fff;
+  min-width: fit-content;
+}
 
 .list-of-challenges {
   list-style-type: none;
@@ -184,13 +187,13 @@ ul.no-list-style {
   padding: 3px 10px 3px 20px;
   display: block;
   text-transform: capitalize;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 /* :after instead of :before cause
    it messes with text-transform */
 .challenge-item:after {
-  content: " ";
+  content: ' ';
   float: left;
   display: inline-block;
   position: relative;
@@ -220,6 +223,7 @@ ul.no-list-style {
 .current-arrow {
   float: right;
   display: none;
+  font-size: 1.25rem;
 }
 
 .challenge-item.current {
@@ -298,7 +302,6 @@ ul.no-list-style {
 /* HOME PAGE
    -------------------------------------------------------------------------- */
 
-
 .chal-background h3 {
   margin: 0;
 }
@@ -310,9 +313,9 @@ ul.no-list-style {
 .progress-circle {
   display: inline-block;
   width: 10px;
-	height: 10px;
+  height: 10px;
   border: 0.15em solid var(--brand-sky-blue);
-	border-radius: 50px;
+  border-radius: 50px;
 }
 
 .progress-circle.completed {
@@ -333,7 +336,9 @@ ul.no-list-style {
 /* LANGUAGES, TRANSLATIONS
    -------------------------------------------------------------------------- */
 
-n, v, adj {
+n,
+v,
+adj {
   position: relative;
 }
 

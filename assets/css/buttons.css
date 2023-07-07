@@ -47,9 +47,17 @@ button .octicon {
 }
 
 .btn-secondary {
-  background: #8cf;
-  color: #fff;
+  background: var(--brand-sky-blue);
+  color: var(--brand-royal-blue);
   border-radius: 4px;
+}
+
+.btn-secondary a {
+  color: var(--brand-royal-blue);
+}
+
+.btn-secondary a:hover {
+  text-decoration: none;
 }
 
 .btn-white {
@@ -76,7 +84,7 @@ button .octicon {
 }
 
 .btn-primary:hover {
-  background: #057ce7;
+  background: var(--brand-violet);
 }
 
 .btn-large {
