@@ -32,7 +32,19 @@
   "workflow": {
     "completed": false,
     "current_challenge": false,
-    "next_challenge": "",
+    "next_challenge": "more_files",
     "previous_challenge": "remote_control"
+  },
+  "more_files": {
+    "completed": false,
+    "current_challenge": false,
+    "next_challenge": "git_going",
+    "previous_challenge": "workflow"
+  },
+  "git_going": {
+    "completed": false,
+    "current_challenge": false,
+    "next_challenge": "get_git",
+    "previous_challenge": "more_files"
   }
 }
