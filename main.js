@@ -1,4 +1,5 @@
 require('dotenv').config()
+require('update-electron-app')() // auto-updates when there is a new release
 const fs = require('fs')
 const path = require('path')
 const userData = require(path.join(__dirname, './lib/user-data.js'))

@@ -58,6 +58,7 @@
     "electron-squirrel-startup": "^1.0.0",
     "glob": "^5.0.5",
     "handlebars": "^3.0.3",
-    "request": "^2.57.0"
+    "request": "^2.57.0",
+    "update-electron-app": "^2.0.1"
   }
 }
