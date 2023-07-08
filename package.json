@@ -1,7 +1,7 @@
 {
-  "name": "git-it-electron",
-  "version": "4.3.0",
-  "description": "An open source desktop app for learning Git and GitHub",
+  "name": "momentum-git-it",
+  "version": "5.0.0",
+  "description": "An open source desktop app for learning Git and GitHub, forked from JLord's original Git-it app.",
   "keywords": [
     "Git",
     "GitHub",
@@ -11,11 +11,11 @@
     "learn",
     "desktop"
   ],
-  "productName": "Git-it",
+  "productName": "Momentum Git-it",
   "main": "main.js",
   "scripts": {
     "prestart": "npm run build-all",
-    "start": "electron .",
+    "start": "electron-forge start",
     "test": "standard lib/*.js lib/verify/*.js menus/*.js main.js",
     "clean": "rimraf built/*",
     "build-chals": "node lib/build-challenges.js",
@@ -23,21 +23,30 @@
     "build-all": "npm run clean && npm run build-chals && npm run build-pages",
     "pack-mac": "electron-packager . Git-it --platform=darwin --arch=x64   --icon=assets/git-it.icns --overwrite --ignore=/out/ --ignore=assets/PortableGit --ignore=resources/ --prune=true --out=out",
     "pack-lin": "electron-packager . Git-it --platform=linux  --arch=x64   --icon=assets/git-it.png  --overwrite --ignore=/out/ --ignore=assets/PortableGit --ignore=resources/ --prune=true --out=out",
-    "pack-win": "electron-packager . Git-it --platform=win32  --arch=ia32  --icon=assets/git-it.ico  --overwrite --ignore=/out/ --ignore=resources/ --prune=true --out=out "
+    "pack-win": "electron-packager . Git-it --platform=win32  --arch=ia32  --icon=assets/git-it.ico  --overwrite --ignore=/out/ --ignore=resources/ --prune=true --out=out ",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jlord/git-it-electron.git"
+    "url": "https://github.com/momentumlearn/git-it-electron"
   },
-  "author": "Jessica Lord",
+  "author": "Amy Gori",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/jlord/git-it-electron/issues"
+    "url": "https://github.com/momentumlearn/git-it-electron"
   },
-  "homepage": "https://github.com/jlord/git-it-electron",
+  "homepage": "https://github.com/momentumlearn/git-it-electron",
   "devDependencies": {
+    "@electron-forge/cli": "^6.2.1",
+    "@electron-forge/maker-deb": "^6.2.1",
+    "@electron-forge/maker-rpm": "^6.2.1",
+    "@electron-forge/maker-squirrel": "^6.2.1",
+    "@electron-forge/maker-zip": "^6.2.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.2.1",
+    "@electron-forge/publisher-github": "^6.2.1",
     "electron": "^24.1.2",
-    "electron-packager": "^8.0.0",
     "rimraf": "^2.5.4",
     "standard": "^17.0.0"
   },
@@ -45,7 +54,8 @@
     "@primer/octicons": "^18.3.0",
     "axios": "^1.4.0",
     "cheerio": "^0.19.0",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
+    "electron-squirrel-startup": "^1.0.0",
     "glob": "^5.0.5",
     "handlebars": "^3.0.3",
     "request": "^2.57.0"
