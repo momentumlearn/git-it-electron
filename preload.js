@@ -6,8 +6,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
 
 contextBridge.exposeInMainWorld('challengesCompleted', {
   confirmClear: () => ipcRenderer.invoke('dialog:confirmClear'),
-  confirmClearResponse: (callback) =>
-    ipcRenderer.on('confirmClearResponse', callback),
+  confirmClearResponse: (callback) => {
+    ipcRenderer.on('dialog:confirmClearResponse', callback)
+  },
   writeUserData: (data) => ipcRenderer.send('writeUserData', data),
 })
 
