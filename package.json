@@ -1,6 +1,6 @@
 {
   "name": "momentum-git-it",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "An open source desktop app for learning Git and GitHub, forked from JLord's original Git-it app.",
   "keywords": [
     "Git",
@@ -26,7 +26,7 @@
     "pack-win": "electron-packager . Git-it --platform=win32  --arch=ia32  --icon=assets/git-it.ico  --overwrite --ignore=/out/ --ignore=resources/ --prune=true --out=out ",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish"
+    "publish": "electron-forge publish --arch=x64,arm64"
   },
   "repository": {
     "type": "git",

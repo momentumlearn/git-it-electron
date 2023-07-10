@@ -146,15 +146,18 @@ app.on('ready', function appReady() {
     userData.updateCurrentDirectory(dirPath)
   })
 
-  ipcMain.handle('dialog:confirmClear', function (event) {
+  ipcMain.handle('dialog:confirmClear', async (event) => {
     const options = {
       type: 'info',
       buttons: ['Yes', 'No'],
       title: 'Confirm Clearing Statuses',
       message: 'Are you sure you want to clear the status for every challenge?',
     }
-    dialog.showMessageBox(options, function (response) {
-      event.sender.send('dialog:confirmClearResponse', response)
+    dialog.showMessageBox(options).then(({ response }) => {
+      if (response === 0) {
+        userData.resetAllChallenges()
+        event.sender.send('clearAllChallenges')
+      }
     })
   })
 
@@ -187,17 +190,15 @@ app.on('ready', function appReady() {
 function setAllChallengesComplete(path) {
   const challenges = JSON.parse(fs.readFileSync(path))
   for (const key in challenges) {
-    challenges[key].completed = true
+    userData.markChallengeComplete(key)
   }
-  fs.writeFileSync(path, JSON.stringify(challenges), '', null)
 }
 
 function setAllChallengesUncomplete(path) {
   const challenges = JSON.parse(fs.readFileSync(path))
   for (const key in challenges) {
-    challenges[key].completed = false
+    userData.resetChallenge(key)
   }
-  fs.writeFileSync(path, JSON.stringify(challenges), '', null)
 }
 
 function setSomeChallengesComplete(path) {
